@@ -10,7 +10,7 @@ public class ForgotPasswordTest {
 
     private final static String BASE_URL = "http://the-internet.herokuapp.com/";
     private static final String EMAIL = "qguwlyqq@sharklasers.com";
-    private static final String[] ALLIAS_EMAIL = EMAIL.split("@");
+    private static final String[] ALIAS_EMAIL = EMAIL.split("@");
 
     private static final String CONTENT_MSG = "Your e-mail's been sent!";
 
@@ -29,6 +29,6 @@ public class ForgotPasswordTest {
     public void restorePasswordTest() throws InterruptedException {
         ForgotPasswordPage.restore(EMAIL);
         Assert.assertEquals(getDriver().findElement(ForgotPasswordPage.CONTENT_FIELD).getText(), CONTENT_MSG);
-        ForgotPasswordPage.checkMail(ALLIAS_EMAIL[0]);
+        ForgotPasswordPage.checkMail(ALIAS_EMAIL[0]);
     }
 }
