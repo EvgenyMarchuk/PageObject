@@ -18,6 +18,15 @@ public class LoginTest extends TestBase{
     @Test
     public void staticLoginTest(){
         StaticLoginPage.login(USER_NAME, PASSWORD);
-        Assert.assertTrue(getDriver().findElement(StaticHomePage.FLASH).isDisplayed());
+        Assert.assertTrue(getDriver().findElement(StaticLoginPage.FLASH_HEADER).isDisplayed());
+    }
+
+    @Test
+    public void staticLogoutTest(){
+        StaticLoginPage.login(USER_NAME, PASSWORD);
+        StaticLoginPage.logout();
+        Assert.assertTrue(getDriver().findElement(StaticLoginPage.USER_NAME_FIELD).isDisplayed());
+        Assert.assertTrue(getDriver().findElement(StaticLoginPage.PASSWORD_FIELD).isDisplayed());
+        Assert.assertTrue(getDriver().findElement(StaticLoginPage.LOGIN_BUTTON).isDisplayed());
     }
 }

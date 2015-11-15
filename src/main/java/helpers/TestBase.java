@@ -8,12 +8,12 @@ public class TestBase {
 
     private final static String BASE_URL = "http://the-internet.herokuapp.com/";
 
-    @BeforeTest
+    @BeforeMethod
     public void setUp(){
         getDriver().navigate().to(BASE_URL);
     }
 
-    @AfterTest
+    @AfterMethod
     public void tearDown(){
         DriverSingleton.quit();
     }
