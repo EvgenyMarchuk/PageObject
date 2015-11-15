@@ -5,7 +5,6 @@ import org.testng.annotations.*;
 import pages.*;
 
 import static helpers.DriverSingleton.getDriver;
-import static helpers.Helper.saveScreenshot;
 
 public class LoginTest extends TestBase{
     private final String USER_NAME = "tomsmith";
