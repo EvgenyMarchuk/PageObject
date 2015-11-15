@@ -19,7 +19,6 @@ public class LoginTest extends TestBase{
     @Test
     public void staticLoginTest(){
         StaticLoginPage.login(USER_NAME, PASSWORD);
-        saveScreenshot("screen.bmp");
         Assert.assertTrue(getDriver().findElement(StaticHomePage.FLASH).isDisplayed());
     }
 }
