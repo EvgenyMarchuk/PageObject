@@ -11,7 +11,7 @@ public class FormAuthenticationTest extends TestBase{
     private final String PASSWORD = "SuperSecretPassword!";
 
     @BeforeMethod
-    public void goToUrl(){
+    public void goToLink(){
         getDriver().findElement(By.linkText("Form Authentication")).click();
     }
 

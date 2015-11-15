@@ -14,7 +14,7 @@ public class ForgotPasswordTest extends TestBase{
     private static final String CONTENT_MSG = "Your e-mail's been sent!";
 
     @BeforeMethod
-    public void goToUrl(){
+    public void goToLink(){
         getDriver().findElement(By.linkText("Forgot Password")).click();
     }
 
