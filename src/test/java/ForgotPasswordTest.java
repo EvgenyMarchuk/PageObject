@@ -19,7 +19,7 @@ public class ForgotPasswordTest extends TestBase{
     }
 
     @Test
-    public void restorePasswordTest() throws InterruptedException {
+    public void restorePasswordTest() {
         ForgotPasswordPage.restore(EMAIL);
         Assert.assertEquals(getDriver().findElement(ForgotPasswordPage.CONTENT_FIELD).getText(), CONTENT_MSG);
         ForgotPasswordPage.checkMail(ALIAS_EMAIL[0]);

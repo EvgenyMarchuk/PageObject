@@ -33,7 +33,7 @@ public class ForgotPasswordPage {
         getDriver().findElement(RETRIEVE_PASSWORD_BUTTON).click();
     }
 
-    public static void checkMail(String alias) throws InterruptedException {
+    public static void checkMail(String alias){
         //WebDriver htmlDriver = new HtmlUnitDriver();//A lot of errors
         WebDriver htmlDriver = new ChromeDriver();//without errors
         htmlDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
