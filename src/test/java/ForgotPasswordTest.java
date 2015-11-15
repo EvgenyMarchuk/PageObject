@@ -15,7 +15,7 @@ public class ForgotPasswordTest extends TestBase{
 
     @BeforeMethod
     public void goToUrl(){
-        getDriver().findElement(By.linkText("Form Authentication")).click();
+        getDriver().findElement(By.linkText("Forgot Password")).click();
     }
 
     @Test
