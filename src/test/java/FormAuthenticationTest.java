@@ -6,7 +6,7 @@ import pages.*;
 
 import static helpers.DriverSingleton.getDriver;
 
-public class LoginTest extends TestBase{
+public class FormAuthenticationTest extends TestBase{
     private final String USER_NAME = "tomsmith";
     private final String PASSWORD = "SuperSecretPassword!";
 
