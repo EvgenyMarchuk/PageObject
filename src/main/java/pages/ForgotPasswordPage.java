@@ -18,7 +18,6 @@ public class ForgotPasswordPage {
     private static final String SENDER_MAIL = "no-reply@the-internet.herokuapp.com";
     private static final String HEADER_EMAIL = "Forgot Password from the-internet";
 
-
     public static final By EMAIL_FIELD = get("forgot.emailField");
     public static final By RETRIEVE_PASSWORD_BUTTON = get("forgot.retrievePasswordButton");
     public static final By CONTENT_FIELD = get("forgot.contentField");

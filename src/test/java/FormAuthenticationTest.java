@@ -17,17 +17,17 @@ public class FormAuthenticationTest extends TestBase{
 
     @Test
     public void staticLoginTest(){
-        StaticLoginPage.login(USER_NAME, PASSWORD);
-        Assert.assertTrue(getDriver().findElement(StaticLoginPage.FLASH_HEADER).isDisplayed());
-        Assert.assertTrue(getDriver().findElement(StaticLoginPage.LOGOUT_BUTTON).isDisplayed());
+        FormAuthenticationPage.login(USER_NAME, PASSWORD);
+        Assert.assertTrue(getDriver().findElement(FormAuthenticationPage.FLASH_HEADER).isDisplayed());
+        Assert.assertTrue(getDriver().findElement(FormAuthenticationPage.LOGOUT_BUTTON).isDisplayed());
     }
 
     @Test
     public void staticLogoutTest(){
-        StaticLoginPage.login(USER_NAME, PASSWORD);
-        StaticLoginPage.logout();
-        Assert.assertTrue(getDriver().findElement(StaticLoginPage.USER_NAME_FIELD).isDisplayed());
-        Assert.assertTrue(getDriver().findElement(StaticLoginPage.PASSWORD_FIELD).isDisplayed());
-        Assert.assertTrue(getDriver().findElement(StaticLoginPage.LOGIN_BUTTON).isDisplayed());
+        FormAuthenticationPage.login(USER_NAME, PASSWORD);
+        FormAuthenticationPage.logout();
+        Assert.assertTrue(getDriver().findElement(FormAuthenticationPage.USER_NAME_FIELD).isDisplayed());
+        Assert.assertTrue(getDriver().findElement(FormAuthenticationPage.PASSWORD_FIELD).isDisplayed());
+        Assert.assertTrue(getDriver().findElement(FormAuthenticationPage.LOGIN_BUTTON).isDisplayed());
     }
 }

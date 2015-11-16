@@ -6,7 +6,7 @@ import static helpers.Locators.get;
 
 import static helpers.DriverSingleton.getDriver;
 
-public class StaticLoginPage {
+public class FormAuthenticationPage {
     public static final By USER_NAME_FIELD = get("login.userNameField");
     public static final By PASSWORD_FIELD = get("login.passwordField");
     public static final By LOGIN_BUTTON = get("login.loginButton");
