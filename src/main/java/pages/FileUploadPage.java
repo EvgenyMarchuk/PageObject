@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.IOException;
 
 import static helpers.DriverSingleton.getDriver;
+import static helpers.Helper.executeScriptCmd;
 import static helpers.Locators.get;
 
 public class FileUploadPage {
@@ -22,9 +23,5 @@ public class FileUploadPage {
         executeScriptCmd(CMD_PROGRAM, FILE_UPLOAD);
         Thread.sleep(500);
         getDriver().findElement(UPLOAD_BUTTON).click();
-    }
-
-    private static void executeScriptCmd(String cmdProgram, String fileUpload) throws IOException {
-        Runtime.getRuntime().exec(new String[] {cmdProgram, fileUpload});
     }
 }
