@@ -5,9 +5,15 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Waiter {
+
+    public static void waitVisibilityOfElementLocated(WebDriver driver, int timeOut, final By locator) {
+        WebDriverWait wait = new WebDriverWait(driver, timeOut);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+    }
 
     public static void waitForElement(WebDriver driver, int timeOut, final By locator){
         WebDriverWait wait = new WebDriverWait(driver, timeOut);

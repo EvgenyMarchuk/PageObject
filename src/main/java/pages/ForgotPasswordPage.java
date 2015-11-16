@@ -1,18 +1,16 @@
 package pages;
 
-import helpers.Waiter;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.testng.Assert;
 
 import java.util.concurrent.TimeUnit;
 
 import static helpers.DriverSingleton.getDriver;
 import static helpers.Locators.get;
-import static helpers.Waiter.waitForElement;
+import static helpers.Waiter.*;
 
 public class ForgotPasswordPage {
 
@@ -26,7 +24,7 @@ public class ForgotPasswordPage {
     public static final By INBOX_BUTTON = get("guerrilla.inboxButton");
     public static final By ALIAS_BUTTON = get("guerrilla.aliasField");
     public static final By SAVE_BUTTON = get("guerrilla.saveButton");
-    public static final By EMAIL = get("guerrilla.letter");
+    public static final By LETTER = get("guerrilla.letter");
     public static final By EMAIL_SUBJECT = get("guerrilla.emailSubject");
 
     public static void restore(String email) {
@@ -42,9 +40,9 @@ public class ForgotPasswordPage {
         htmlDriver.findElement(INBOX_BUTTON).click();
         htmlDriver.findElement(ALIAS_BUTTON).sendKeys(alias);
         htmlDriver.findElement(SAVE_BUTTON).click();
-        waitForElement(htmlDriver, 30, EMAIL);
-        Assert.assertEquals(htmlDriver.findElement(EMAIL).getText(), SENDER_MAIL);
-        htmlDriver.findElement(EMAIL).click();
+        waitVisibilityOfElementLocated(htmlDriver, 10, LETTER);
+        Assert.assertEquals(htmlDriver.findElement(LETTER).getText(), SENDER_MAIL);
+        htmlDriver.findElement(LETTER).click();
         Assert.assertEquals(htmlDriver.findElement(EMAIL_SUBJECT).getText(),
                 HEADER_EMAIL);
         htmlDriver.quit();
