@@ -1,5 +1,6 @@
 package pages;
 
+import helpers.Waiter;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -11,6 +12,7 @@ import java.util.concurrent.TimeUnit;
 
 import static helpers.DriverSingleton.getDriver;
 import static helpers.Locators.get;
+import static helpers.Waiter.waitForElement;
 
 public class ForgotPasswordPage {
 
@@ -40,6 +42,7 @@ public class ForgotPasswordPage {
         htmlDriver.findElement(INBOX_BUTTON).click();
         htmlDriver.findElement(ALIAS_BUTTON).sendKeys(alias);
         htmlDriver.findElement(SAVE_BUTTON).click();
+        waitForElement(htmlDriver, 30, EMAIL);
         Assert.assertEquals(htmlDriver.findElement(EMAIL).getText(), SENDER_MAIL);
         htmlDriver.findElement(EMAIL).click();
         Assert.assertEquals(htmlDriver.findElement(EMAIL_SUBJECT).getText(),

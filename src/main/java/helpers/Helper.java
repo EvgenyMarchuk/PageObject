@@ -38,9 +38,4 @@ public class Helper {
             System.out.println(ex.getMessage());
         }
     }
-
-    public static void waiter(By by, int time) {
-        WebDriverWait wait = new WebDriverWait(getDriver(), time);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(by));
-    }
 }

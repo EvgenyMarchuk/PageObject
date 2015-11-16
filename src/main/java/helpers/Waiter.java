@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Waiter {
 
-    public void waitForElement(WebDriver driver, int timeOut, final By locator){
+    public static void waitForElement(WebDriver driver, int timeOut, final By locator){
         WebDriverWait wait = new WebDriverWait(driver, timeOut);
         wait.until(new ExpectedCondition<WebElement>() {
             @Override
@@ -19,7 +19,7 @@ public class Waiter {
         });
     }
 
-    public void waitForJQury(WebDriver driver, int timeOut){
+    public static void waitForJQury(WebDriver driver, int timeOut){
         WebDriverWait wait = new WebDriverWait(driver, timeOut);
         wait.until(new ExpectedCondition<Boolean>() {
             @Override
@@ -30,7 +30,7 @@ public class Waiter {
         });
     }
 
-    public void waitForPageToLoad(WebDriver driver, int timeOut) {
+    public static void waitForPageToLoad(WebDriver driver, int timeOut) {
         WebDriverWait wait = new WebDriverWait(driver, timeOut);
         wait.until(new ExpectedCondition<Boolean>() {
             @Override
