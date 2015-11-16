@@ -1,12 +1,9 @@
 package helpers;
 
 import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
 import java.io.IOException;
@@ -37,5 +34,9 @@ public class Helper {
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
+    }
+
+    public static void executeScriptCmd(String cmdProgram, String fileUpload) throws IOException {
+        Runtime.getRuntime().exec(new String[] {cmdProgram, fileUpload});
     }
 }
