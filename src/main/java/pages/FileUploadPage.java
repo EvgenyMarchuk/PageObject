@@ -11,7 +11,7 @@ import static helpers.Locators.get;
 
 public class FileUploadPage {
 
-    private static final String CMD_PROGRAM = "./src/main/resources/ff_upload.exe";
+    private static final String CMD_PROGRAM = "./src/main/resources/upload.exe";
     private static File FILE_UPLOAD = new File("./src/main/resources/test.txt");
     public static final By VIEW_BUTTON = get("upload.viewButton");
     public static final By UPLOAD_BUTTON = get("upload.uploadButton");
