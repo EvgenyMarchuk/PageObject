@@ -15,23 +15,25 @@ public class AlertsPage {
 
     public static String alertText = "";
 
+    private static Alert alert;
+
     public static void jsAlert() {
         getDriver().findElement(JS_ALERT).click();
-        Alert alert = getDriver().switchTo().alert();
+        alert = getDriver().switchTo().alert();
         alertText = alert.getText();
         alert.accept();
     }
 
     public static void jsConfirm() {
         getDriver().findElement(JS_CONFIRM).click();
-        Alert alert = getDriver().switchTo().alert();
+        alert = getDriver().switchTo().alert();
         alertText = alert.getText();
         alert.dismiss();
     }
 
     public static void jsPrompt() {
         getDriver().findElement(JS_PROMPT).click();
-        Alert alert = getDriver().switchTo().alert();
+        alert = getDriver().switchTo().alert();
         alertText = alert.getText();
         alert.sendKeys(PROMPT_RESULT_TEXT);
         alert.accept();
