@@ -13,7 +13,7 @@ public class TestBase {
         getDriver().navigate().to(BASE_URL);
     }
 
-    @AfterClass
+    @AfterMethod
     public void tearDown(){
         getDriver().manage().deleteAllCookies();
         DriverSingleton.quit();
