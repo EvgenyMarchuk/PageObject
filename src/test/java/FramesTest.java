@@ -17,23 +17,16 @@ public class FramesTest extends TestBase{
     public void frameTest(){
         getDriver().findElement(By.linkText("Nested Frames")).click();
 
-        getDriver().switchTo().frame("frame-bottom");
+        FramesPage.switchToFrame(getDriver(), "frame-bottom");
         Assert.assertEquals(getDriver().findElement(FramesPage.BODY_FRAME).getText().trim(), "BOTTOM");
 
-        getDriver()
-                .switchTo().defaultContent()
-                .switchTo().frame("frame-top")
-                .switchTo().frame("frame-left");
+        FramesPage.switchToParenFrame(getDriver(), "frame-top", "frame-left");
         Assert.assertEquals(getDriver().findElement(FramesPage.BODY_FRAME).getText().trim(), "LEFT");
 
-        getDriver()
-                .switchTo().parentFrame()
-                .switchTo().frame("frame-middle");
+        FramesPage.switchToParenFrame(getDriver(), "frame-top", "frame-middle");
         Assert.assertEquals(getDriver().findElement(FramesPage.CONTENT_FRAME).getText().trim(), "MIDDLE");
 
-        getDriver()
-                .switchTo().parentFrame()
-                .switchTo().frame("frame-right");
+        FramesPage.switchToParenFrame(getDriver(), "frame-top", "frame-right");
         Assert.assertEquals(getDriver().findElement(FramesPage.BODY_FRAME).getText().trim(), "RIGHT");
     }
 }
