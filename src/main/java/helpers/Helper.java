@@ -36,7 +36,12 @@ public class Helper {
         }
     }
 
-    public static void executeScriptCmd(String cmdProgram, String fileUpload) throws IOException {
-        Runtime.getRuntime().exec(new String[] {cmdProgram, fileUpload});
+    public static void executeScriptCmd(String cmdProgram, File fileUpload) throws IOException {
+        String filePath = fileUpload.getAbsolutePath();
+        Runtime.getRuntime().exec(new String[] {cmdProgram, filePath});
+    }
+
+    public static void executeScriptCmd(String cmdProgram, String[] args) throws IOException {
+        Runtime.getRuntime().exec(new String[] {cmdProgram, args[0], args[1]});
     }
 }
