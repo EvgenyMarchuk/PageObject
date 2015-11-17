@@ -1,9 +1,7 @@
 package helpers;
 
 import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -43,5 +41,14 @@ public class Helper {
 
     public static void executeScriptCmd(String cmdProgram, String[] args) throws IOException {
         Runtime.getRuntime().exec(new String[] {cmdProgram, args[0], args[1]});
+    }
+
+    public static boolean isAlertPresent(WebDriver driver) {
+        try {
+            driver.switchTo().alert();
+            return true;
+        } catch (NoAlertPresentException ex) {
+            return false;
+        }
     }
 }

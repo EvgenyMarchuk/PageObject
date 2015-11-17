@@ -8,7 +8,6 @@ import static helpers.DriverSingleton.getDriver;
 
 public class CheckBoxesTest extends TestBase{
 
-
     @BeforeMethod
     public void goToLink(){
         getDriver().findElement(By.linkText("Checkboxes")).click();
