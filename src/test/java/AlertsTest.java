@@ -16,8 +16,6 @@ public class AlertsTest extends TestBase{
     private static final String CONFIRM_CANCEL_RESULT_TEXT = "You clicked: Cancel";
     private static final String PROMPT_TEXT = "I am a JS prompt";
 
-
-
     @BeforeMethod
     public void goToLink(){
         getDriver().findElement(By.linkText("JavaScript Alerts")).click();
