@@ -28,5 +28,6 @@ public class FramesTest extends TestBase{
 
         FramesPage.switchToParenFrame(getDriver(), "frame-top", "frame-right");
         Assert.assertEquals(getDriver().findElement(FramesPage.BODY_FRAME).getText().trim(), "RIGHT");
+        FramesPage.switchToDefaultContent(getDriver());
     }
 }
