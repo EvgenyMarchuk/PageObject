@@ -23,7 +23,7 @@ public class FileUploadTest extends TestBase{
         Assert.assertEquals(getDriver().findElement(FileUploadPage.SUCCESS_MSG_TEXT).getText(), SUCCESS_MSG);
         Assert.assertTrue(getDriver().findElement(FileUploadPage.UPLOAD_FILES_FIELD).isDisplayed());
         Assert.assertEquals(getDriver().findElement(FileUploadPage.UPLOAD_FILES_FIELD).getText(),
-                FileUploadPage.faleName);
+                FileUploadPage.FILE_NAME);
     }
 
     @Test
@@ -32,7 +32,7 @@ public class FileUploadTest extends TestBase{
         Assert.assertEquals(getDriver().findElement(FileUploadPage.SUCCESS_MSG_TEXT).getText(), SUCCESS_MSG);
         Assert.assertTrue(getDriver().findElement(FileUploadPage.UPLOAD_FILES_FIELD).isDisplayed());
         Assert.assertEquals(getDriver().findElement(FileUploadPage.UPLOAD_FILES_FIELD).getText(),
-                FileUploadPage.faleName);
+                FileUploadPage.FILE_NAME);
     }
 
 }
