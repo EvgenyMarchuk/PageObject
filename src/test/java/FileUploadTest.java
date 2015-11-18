@@ -10,7 +10,6 @@ import static helpers.DriverSingleton.getDriver;
 
 public class FileUploadTest extends TestBase{
 
-    private static final String FILE_NAME = "test.txt";
     private static final String SUCCESS_MSG = "File Uploaded!";
 
     @BeforeMethod
@@ -23,7 +22,8 @@ public class FileUploadTest extends TestBase{
         FileUploadPage.uploadFile();
         Assert.assertEquals(getDriver().findElement(FileUploadPage.SUCCESS_MSG_TEXT).getText(), SUCCESS_MSG);
         Assert.assertTrue(getDriver().findElement(FileUploadPage.UPLOAD_FILES_FIELD).isDisplayed());
-        Assert.assertEquals(getDriver().findElement(FileUploadPage.UPLOAD_FILES_FIELD).getText(), FILE_NAME);
+        Assert.assertEquals(getDriver().findElement(FileUploadPage.UPLOAD_FILES_FIELD).getText(),
+                FileUploadPage.faleName);
     }
 
     @Test
@@ -31,7 +31,8 @@ public class FileUploadTest extends TestBase{
         FileUploadPage.uploadFileInput();
         Assert.assertEquals(getDriver().findElement(FileUploadPage.SUCCESS_MSG_TEXT).getText(), SUCCESS_MSG);
         Assert.assertTrue(getDriver().findElement(FileUploadPage.UPLOAD_FILES_FIELD).isDisplayed());
-        Assert.assertEquals(getDriver().findElement(FileUploadPage.UPLOAD_FILES_FIELD).getText(), FILE_NAME);
+        Assert.assertEquals(getDriver().findElement(FileUploadPage.UPLOAD_FILES_FIELD).getText(),
+                FileUploadPage.faleName);
     }
 
 }
