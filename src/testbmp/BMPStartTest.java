@@ -35,6 +35,7 @@ public class BMPStartTest {
     @AfterMethod
     public void tearDown() throws Exception{
         driver.quit();
+        driver = null;
         bmp.stop();
     }
 
