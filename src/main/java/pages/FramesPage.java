@@ -21,4 +21,8 @@ public class FramesPage {
                 .switchTo().frame(parentFrame)
                 .switchTo().frame(frame);
     }
+
+    public static void switchToDefaultContent(WebDriver driver) {
+        driver.switchTo().defaultContent();
+    }
 }
