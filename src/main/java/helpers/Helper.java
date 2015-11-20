@@ -1,10 +1,14 @@
 package helpers;
 
+import com.google.sitebricks.client.Web;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 import static helpers.DriverSingleton.getDriver;
 
@@ -50,5 +54,13 @@ public class Helper {
         } catch (NoAlertPresentException ex) {
             return false;
         }
+    }
+
+    public static List<String> getElementTexts(Collection<WebElement> elements){
+        List<String> texts = new ArrayList<>();
+        for (WebElement element : elements){
+            texts.add(element.getText());
+        }
+        return texts;
     }
 }

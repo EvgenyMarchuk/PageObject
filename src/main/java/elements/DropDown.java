@@ -1,6 +1,5 @@
 package elements;
 
-import com.google.sitebricks.client.Web;
 import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebElement;
