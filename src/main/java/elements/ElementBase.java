@@ -15,6 +15,14 @@ public abstract class ElementBase {
         this.locator = locator;
     }
 
+    public void click(){
+        wrapElement.click();
+    }
+
+    public void focus(){
+        wrapElement.sendKeys("");
+    }
+
     public WebElement getWrapElement() {
         return wrapElement;
     }
