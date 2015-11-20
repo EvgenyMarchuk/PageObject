@@ -10,15 +10,15 @@ public class Button extends ElementBase{
     }
 
     public void click(){
-        getWrapElement().click();
+        wrapElement.click();
     }
 
     public void getText(){
-        getWrapElement().getText();
+        wrapElement.getText();
     }
 
     public boolean isEnabled(){
-        return getWrapElement().isEnabled();
+        return wrapElement.isEnabled();
     }
 
 }

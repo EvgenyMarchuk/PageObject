@@ -19,15 +19,15 @@ public class InputField extends ElementBase{
     }
 
     private void clear() {
-        getWrapElement().clear();
+        wrapElement.clear();
     }
 
     public String getText(){
-        return getWrapElement().getAttribute("value");
+        return wrapElement.getAttribute("value");
     }
 
     public boolean isEnabled(){
-        return getWrapElement().isEnabled();
+        return wrapElement.isEnabled();
     }
 
 }
