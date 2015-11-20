@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.Select;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DropDown extends ElementBase{
+public class DropDown extends HasText{
     private Select select;
 
     public DropDown(SearchContext host, By locator) {
@@ -21,6 +21,7 @@ public class DropDown extends ElementBase{
         return select.isMultiple();
     }
 
+    @Override
     public String getText(){
         return select.getFirstSelectedOption().getText();
     }

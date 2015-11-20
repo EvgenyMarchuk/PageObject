@@ -3,7 +3,7 @@ package elements;
 import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
 
-public class InputField extends ElementBase{
+public class InputField extends HasText{
 
     public InputField(SearchContext host, By locator) {
         super(host, locator);
@@ -22,6 +22,7 @@ public class InputField extends ElementBase{
         wrapElement.clear();
     }
 
+    @Override
     public String getText(){
         return wrapElement.getAttribute("value");
     }

@@ -15,6 +15,10 @@ public abstract class ElementBase {
         this.locator = locator;
     }
 
+    public boolean isVisible(){
+        return wrapElement.isDisplayed();
+    }
+
     public void click(){
         wrapElement.click();
     }
