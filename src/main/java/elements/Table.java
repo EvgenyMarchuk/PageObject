@@ -1,6 +1,5 @@
 package elements;
 
-import com.google.sitebricks.client.Web;
 import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebElement;
@@ -8,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import java.util.ArrayList;
 import java.util.List;
 
-import static helpers.DriverSingleton.getDriver;
+import static helpers.Helper.getElementTexts;
 
 public class Table extends ElementBase{
 
@@ -41,19 +40,27 @@ public class Table extends ElementBase{
     }
 
     public List<WebElement> getColumnElements(int index){
-        return host.findElements(By.cssSelector(String.format("td:nth-child(%d)", ++index)));
+        return wrapElement.findElements(By.cssSelector(String.format("td:nth-child(%d)", ++index)));
     }
 
     public List<WebElement> getRowElements(int index){
-        return host.findElements(By.cssSelector("tbody tr")).get(index).findElements(By.tagName("td"));
+        return wrapElement.findElements(By.cssSelector("tbody tr")).get(index).findElements(By.tagName("td"));
     }
 
     public List<WebElement> getHeaderElements(){
-        return host.findElements(By.tagName("th"));
+        return wrapElement.findElements(By.tagName("th"));
+    }
+
+    public List<String> getHeaderElementTexts(){
+        return getElementTexts(getHeaderElements());
     }
 
     public WebElement getHeader(int index){
         return getHeaderElements().get(index);
+    }
+
+    public String getHeaderText(int index){
+        return getHeader(index).getText();
     }
 
     public WebElement getHeader(String name) throws Exception {
@@ -64,4 +71,22 @@ public class Table extends ElementBase{
         }
         throw new Exception("No such header: " + name);
     }
+
+    public WebElement getCell(int x, int y){
+        return getRowElements(x).get(y);
+    }
+
+    public String getCellText(int x, int y){
+        return getCell(x, y).getText();
+    }
+
+    public void sort(String headerName) throws Exception {
+        getHeader(headerName).click();
+    }
+
+    public List<String> getColumnElementText(int index) {
+        return null;
+    }
+
+
 }
