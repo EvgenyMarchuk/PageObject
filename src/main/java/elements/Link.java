@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
 
 public class Link extends ElementBase{
+
     public Link(SearchContext host, By locator) {
         super(host, locator);
     }

@@ -29,5 +29,4 @@ public class InputField extends ElementBase{
     public boolean isEnabled(){
         return wrapElement.isEnabled();
     }
-
 }
