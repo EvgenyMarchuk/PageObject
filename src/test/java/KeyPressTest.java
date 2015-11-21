@@ -21,7 +21,8 @@ public class KeyPressTest extends TestBase{
         for (char s : CHARS){
             String enteredValue = String.valueOf(s);
             actions.sendKeys(enteredValue).perform();
-            Assert.assertEquals(getDriver().findElement(KeyPressPage.KEY_PRESS_RESULT).getText(), "You entered: " + enteredValue);
+            Assert.assertEquals(getDriver().findElement(KeyPressPage.KEY_PRESS_RESULT).getText(),
+                    "You entered: " + enteredValue);
         }
     }
 }
