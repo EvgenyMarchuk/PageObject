@@ -13,9 +13,8 @@ public class CheckboxesPage {
 
     public static final By CHECKBOXES = get("checkbox.elementCheckbox");
 
-    public static void selectCheckBoxes() {
-        List<WebElement> element = getDriver().findElements(CHECKBOXES);
-        check(element.get(0));
-        unCheck(element.get(1));
+    public static void selectCheckBoxes(List<WebElement> elements) {
+        check(elements.get(0));
+        unCheck(elements.get(1));
     }
 }

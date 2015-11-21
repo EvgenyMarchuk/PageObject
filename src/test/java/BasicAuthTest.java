@@ -19,11 +19,11 @@ public class BasicAuthTest extends TestBase{
     @BeforeMethod
     public void goToLink() throws IOException {
         executeScriptCmd(CMD_PROGRAM, ACCOUNT_DATA);
+        getDriver().findElement(By.linkText("Basic Auth")).click();
     }
 
     @Test
     public void basicAuthTest() {
-        getDriver().findElement(By.linkText("Basic Auth")).click();
         Assert.assertEquals(getDriver().findElement(BasicAuthPage.HEAD_PAGE_LABEL).getText(),
                 HEAD_PAGE);
         Assert.assertEquals(getDriver().findElement(BasicAuthPage.CONTENT_EXAMPLE_LABEL).getText(),

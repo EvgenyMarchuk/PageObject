@@ -4,13 +4,18 @@ import org.testng.Assert;
 import org.testng.annotations.*;
 import pages.FileUploadPage;
 
+import java.io.File;
 import java.io.IOException;
 
 import static helpers.DriverSingleton.getDriver;
+import static helpers.Helper.executeScriptCmd;
 
 public class FileUploadTest extends TestBase{
 
     private static final String SUCCESS_MSG = "File Uploaded!";
+    private final String CMD_PROGRAM = "./src/main/resources/upload.exe";
+    private static File FILE_UPLOAD_PATH = new File("./src/main/resources/test.txt");
+    public static final String FILE_NAME = FILE_UPLOAD_PATH.getName();
 
     @BeforeMethod
     public void goToLink(){
@@ -18,21 +23,24 @@ public class FileUploadTest extends TestBase{
     }
 
     @Test
-    public void uploadFileTest() throws IOException, InterruptedException {
-        FileUploadPage.uploadFile();
+    public void uploadFileTest() throws InterruptedException, IOException {
+        FileUploadPage.viewButtonClick();
+        executeScriptCmd(CMD_PROGRAM, FILE_UPLOAD_PATH);
+        Thread.sleep(500);
+        FileUploadPage.uploadButtonClick();
         Assert.assertEquals(getDriver().findElement(FileUploadPage.SUCCESS_MSG_TEXT).getText(), SUCCESS_MSG);
         Assert.assertTrue(getDriver().findElement(FileUploadPage.UPLOAD_FILES_FIELD).isDisplayed());
         Assert.assertEquals(getDriver().findElement(FileUploadPage.UPLOAD_FILES_FIELD).getText(),
-                FileUploadPage.FILE_NAME);
+                FILE_NAME);
     }
 
     @Test
-    public void uploadFileInputTest() throws IOException, InterruptedException {
-        FileUploadPage.uploadFileInput();
+    public void uploadFileInputTest() {
+        FileUploadPage.uploadFileInput(FILE_UPLOAD_PATH.getAbsolutePath());
         Assert.assertEquals(getDriver().findElement(FileUploadPage.SUCCESS_MSG_TEXT).getText(), SUCCESS_MSG);
         Assert.assertTrue(getDriver().findElement(FileUploadPage.UPLOAD_FILES_FIELD).isDisplayed());
         Assert.assertEquals(getDriver().findElement(FileUploadPage.UPLOAD_FILES_FIELD).getText(),
-                FileUploadPage.FILE_NAME);
+                FILE_NAME);
     }
 
 }
