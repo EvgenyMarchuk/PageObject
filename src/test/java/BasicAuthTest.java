@@ -7,15 +7,18 @@ import pages.BasicAuthPage;
 import java.io.IOException;
 
 import static helpers.DriverSingleton.getDriver;
+import static helpers.Helper.executeScriptCmd;
 
 public class BasicAuthTest extends TestBase{
 
+    private static final String CMD_PROGRAM = "./src/main/resources/wab.exe";
+    private static final String[] ACCOUNT_DATA = {"admin", "admin"};
     private static final String HEAD_PAGE = "Basic Auth";
     private static final String AUTH_SUCCESS = "Congratulations! You must have the proper credentials.";
 
     @BeforeMethod
     public void goToLink() throws IOException {
-        BasicAuthPage.authorization();
+        executeScriptCmd(CMD_PROGRAM, ACCOUNT_DATA);
     }
 
     @Test

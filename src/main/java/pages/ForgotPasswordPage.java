@@ -16,7 +16,7 @@ public class ForgotPasswordPage {
 
     private static final String MAIL_SERVICES = "https://www.guerrillamail.com";
     private static final String SENDER_MAIL = "no-reply@the-internet.herokuapp.com";
-    private static final String HEADER_EMAIL = "Forgot Password from the-internet";
+    private static final String HEADER_EMAIL_MSG = "Forgot Password from the-internet";
 
     public static final By EMAIL_FIELD = get("forgot.emailField");
     public static final By RETRIEVE_PASSWORD_BUTTON = get("forgot.retrievePasswordButton");
@@ -44,7 +44,7 @@ public class ForgotPasswordPage {
         Assert.assertEquals(htmlDriver.findElement(LETTER).getText(), SENDER_MAIL);
         htmlDriver.findElement(LETTER).click();
         Assert.assertEquals(htmlDriver.findElement(EMAIL_SUBJECT).getText(),
-                HEADER_EMAIL);
+                HEADER_EMAIL_MSG);
         htmlDriver.quit();
     }
 }
