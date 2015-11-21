@@ -15,6 +15,11 @@ public class Waiter {
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
+    public static void waitVisibilityOf(WebDriver driver, int timeOut, final WebElement locator) {
+        WebDriverWait wait = new WebDriverWait(driver, timeOut);
+        wait.until(ExpectedConditions.visibilityOf(locator));
+    }
+
     public static void waitForElement(WebDriver driver, int timeOut, final By locator){
         WebDriverWait wait = new WebDriverWait(driver, timeOut);
         wait.until(new ExpectedCondition<WebElement>() {
