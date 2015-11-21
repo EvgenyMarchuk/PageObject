@@ -2,10 +2,6 @@ package pages;
 
 import org.openqa.selenium.By;
 
-import java.io.File;
-import java.io.IOException;
-
-import static helpers.Helper.executeScriptCmd;
 import static helpers.Locators.get;
 
 public class BasicAuthPage {

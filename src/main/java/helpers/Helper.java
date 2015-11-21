@@ -56,7 +56,7 @@ public class Helper {
         }
     }
 
-    public static List<String> getElementTexts(Collection<WebElement> elements){
+    public static List<String> getElementsTexts(Collection<WebElement> elements){
         List<String> texts = new ArrayList<>();
         for (WebElement element : elements){
             texts.add(element.getText());

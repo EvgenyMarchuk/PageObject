@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import java.util.ArrayList;
 import java.util.List;
 
-import static helpers.Helper.getElementTexts;
+import static helpers.Helper.getElementsTexts;
 
 public class Table extends ElementBase{
 
@@ -15,68 +15,92 @@ public class Table extends ElementBase{
         super(host, locator);
     }
 
-    public int getColumnNumber(){
-        return getColumnElements(0).size();
+    public int getColumnNumber() {
+        return getColumnElement(0).size();
     }
 
-    public int getRowNumber(){
-        return getRowElements(0).size();
+    public int getRowNumber() {
+        return getRowElement(0).size();
     }
 
-    public List<List<WebElement>> getRows(){
-        List<List<WebElement>> row = new ArrayList<>();
-        for (int i = 0; i < getRowNumber(); i++){
-            row.add(getRowElements(i));
+    public List<List<WebElement>> getColumns() {
+        List<List<WebElement>> columns = new ArrayList<>();
+        for (int i = 0; i < getColumnNumber(); i++) {
+            columns.add(getColumnElement(i));
         }
-        return row;
+        return columns;
     }
 
-    public List<List<WebElement>> getColumns(){
-        List<List<WebElement>> column = new ArrayList<>();
-        for (int i = 0; i < getColumnNumber(); i++){
-            column.add(getColumnElements(i));
+    public List<List<String>> getColumnsText() {
+        List<List<String>> texts = new ArrayList<>();
+        for (int i = 0; i < getColumnNumber(); i++) {
+            texts.add(getColumnElementText(i));
         }
-        return column;
+        return texts;
     }
 
-    public List<WebElement> getColumnElements(int index){
+    public List<List<WebElement>> getRows() {
+        List<List<WebElement>> rows = new ArrayList<>();
+        for (int i = 0; i < getRowNumber(); i++) {
+            rows.add(getRowElement(i));
+        }
+        return rows;
+    }
+
+    public List<List<String>> getRowsText() {
+        List<List<String>> texts = new ArrayList<>();
+        for (int i = 0; i < getRowNumber(); i++) {
+            texts.add(getRowElementText(i));
+        }
+        return texts;
+    }
+
+    public List<WebElement> getColumnElement(int index) {
         return wrapElement.findElements(By.cssSelector(String.format("td:nth-child(%d)", ++index)));
     }
 
-    public List<WebElement> getRowElements(int index){
+    public List<String> getColumnElementText(int index) {
+        return getElementsTexts(getColumnElement(index));
+    }
+
+    public List<WebElement> getRowElement(int index) {
         return wrapElement.findElements(By.cssSelector("tbody tr")).get(index).findElements(By.tagName("td"));
     }
 
-    public List<WebElement> getHeaderElements(){
+    public List<String> getRowElementText(int index) {
+        return getElementsTexts(getRowElement(index));
+    }
+
+    public List<WebElement> getHeaderElements() {
         return wrapElement.findElements(By.tagName("th"));
     }
 
-    public List<String> getHeaderElementTexts(){
-        return getElementTexts(getHeaderElements());
+    public List<String> getHeaderElementsText() {
+        return getElementsTexts(getHeaderElements());
     }
 
-    public WebElement getHeader(int index){
+    public WebElement getHeader(int index) {
         return getHeaderElements().get(index);
     }
 
-    public String getHeaderText(int index){
+    public String  getHeaderText(int index) {
         return getHeader(index).getText();
     }
 
-    public WebElement getHeader(String name) throws Exception {
-        for (WebElement header : getHeaderElements()){
-            if (header.getText().equals(name)){
+    public WebElement getHeader(String  name) throws Exception {
+        for (WebElement header : getHeaderElements()) {
+            if (header.getText().equals(name)) {
                 return header;
             }
         }
-        throw new Exception("No such header: " + name);
+        throw new Exception ("No such header " + name);
     }
 
-    public WebElement getCell(int x, int y){
-        return getRowElements(x).get(y);
+    public WebElement getCell(int x, int y) {
+        return getRowElement(x).get(y);
     }
 
-    public String getCellText(int x, int y){
+    public String getCellText(int x, int y) {
         return getCell(x, y).getText();
     }
 
@@ -84,8 +108,8 @@ public class Table extends ElementBase{
         getHeader(headerName).click();
     }
 
-    public List<String> getColumnElementText(int index) {
-        return null;
+    public void sort(int index) {
+        getHeader(index).click();
     }
 
 

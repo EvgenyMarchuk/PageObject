@@ -1,5 +1,6 @@
 import helpers.TestBase;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import pages.FramesPage;
@@ -15,7 +16,7 @@ public class FramesTest extends TestBase{
 
     @Test
     public void frameTest(){
-        getDriver().findElement(By.linkText("Nested Frames")).click();
+        getDriver().findElement(FramesPage.NESTED_FRAME).click();
 
         FramesPage.switchToFrame(getDriver(), "frame-bottom");
         Assert.assertEquals(getDriver().findElement(FramesPage.BODY_FRAME).getText().trim(), "BOTTOM");
@@ -29,5 +30,11 @@ public class FramesTest extends TestBase{
         FramesPage.switchToParenFrame(getDriver(), "frame-top", "frame-right");
         Assert.assertEquals(getDriver().findElement(FramesPage.BODY_FRAME).getText().trim(), "RIGHT");
         FramesPage.switchToDefaultContent(getDriver());
+    }
+
+    @Test
+    public void iFrameTest(){
+        getDriver().findElement(FramesPage.I_FRAME).click();
+        getDriver().manage().window().setSize(new Dimension(640, 480));
     }
 }

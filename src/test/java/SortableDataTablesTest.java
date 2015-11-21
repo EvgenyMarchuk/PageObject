@@ -13,7 +13,7 @@ import java.util.Collections;
 import java.util.List;
 
 import static helpers.DriverSingleton.getDriver;
-import static helpers.Helper.getElementTexts;
+import static helpers.Helper.getElementsTexts;
 
 public class SortableDataTablesTest extends TestBase{
 
@@ -24,16 +24,20 @@ public class SortableDataTablesTest extends TestBase{
         getDriver().findElement(By.linkText("Sortable Data Tables")).click();
     }
 
-//    @Test
-//    public void sortLastNameTest() throws InterruptedException {
-//        List<String> lastNameColumnText = getElementTexts(getColumnElements(1));
-//        SortableDataTablesPage.sortColumn();
-//        Collections.sort(lastNameColumnText);
-//        Assert.assertEquals(lastNameColumnText, getElementTexts(getColumnElements(1)));
-//        SortableDataTablesPage.sortColumn();
-//        Collections.reverse(lastNameColumnText);
-//        Assert.assertEquals(lastNameColumnText, getElementTexts(getColumnElements(1)));
-//    }
+    @Test
+    public void sortLastNameTest() throws InterruptedException {
+        List<String> lastNameColumnText = getElementsTexts(getColumnElement(LAST_NAME_COLUMN));
+        SortableDataTablesPage.sortColumn();
+        Collections.sort(lastNameColumnText);
+        Assert.assertEquals(lastNameColumnText, getElementsTexts(getColumnElement(LAST_NAME_COLUMN)));
+        SortableDataTablesPage.sortColumn();
+        Collections.reverse(lastNameColumnText);
+        Assert.assertEquals(lastNameColumnText, getElementsTexts(getColumnElement(LAST_NAME_COLUMN)));
+    }
+
+    private Collection<WebElement> getColumnElement(int index) {
+        return getDriver().findElements(By.cssSelector(String.format("#table1 td:nth-child(%d)", ++index)));
+    }
 
     @Test
     public void sortTableLastNameTest() throws Exception {

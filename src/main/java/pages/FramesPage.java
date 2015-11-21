@@ -8,6 +8,8 @@ import static helpers.Locators.get;
 public class FramesPage {
     public static final By BODY_FRAME = get("frame.body");
     public static final By CONTENT_FRAME = get("frame.content");
+    public static final By NESTED_FRAME = get("frame.nestedFrame");
+    public static final By I_FRAME = get("frame.iFrame");
 
     public static void switchToFrame(WebDriver driver, String frame) {
         driver
