@@ -1,6 +1,5 @@
 package helpers;
 
-import com.google.sitebricks.client.Web;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 
@@ -9,8 +8,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-
-import static helpers.DriverSingleton.getDriver;
 
 public class Helper {
 
@@ -28,8 +25,8 @@ public class Helper {
         }
     }
 
-    public static void saveScreenshot(String fileName) {
-        TakesScreenshot screenMaker = (TakesScreenshot)getDriver();
+    public static void saveScreenshot(WebDriver driver, String fileName) {
+        TakesScreenshot screenMaker = (TakesScreenshot)driver;
         File screen = screenMaker.getScreenshotAs(OutputType.FILE);
         try {
             FileUtils.copyFile(screen, new File("target/" + fileName));

@@ -1,6 +1,9 @@
 import helpers.TestBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import pages.FramesPage;
@@ -15,7 +18,7 @@ public class FramesTest extends TestBase{
     }
 
     @Test
-    public void frameTest(){
+    public void nestedFrameTest(){
         getDriver().findElement(FramesPage.NESTED_FRAME).click();
 
         FramesPage.switchToFrame(getDriver(), "frame-bottom");
@@ -36,5 +39,19 @@ public class FramesTest extends TestBase{
     public void iFrameTest(){
         getDriver().findElement(FramesPage.I_FRAME).click();
         getDriver().manage().window().setSize(new Dimension(640, 480));
+        getDriver().findElement(By.id("mceu_9")).click();
+        (new Actions(getDriver()))
+                .sendKeys(Keys.LEFT_CONTROL + "A")
+                .perform();
+        getDriver().findElement(By.id("mceu_9")).click();
+        (new Actions(getDriver()))
+                .sendKeys("test1")
+                .sendKeys(Keys.ENTER)
+                .sendKeys("test2")
+                .sendKeys(Keys.ENTER)
+                .sendKeys("test3")
+                .sendKeys(Keys.ENTER).perform();
+        WebElement element = getDriver().findElement(By.id("mce_0_ifr"));
+        getDriver().switchTo().frame(element);
     }
 }
