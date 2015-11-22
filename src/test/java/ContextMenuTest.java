@@ -20,6 +20,7 @@ public class ContextMenuTest extends TestBase{
 
     @Test(description = "only firefox browser")
     public void contextMenuTest(){
+        Assert.assertEquals(getDriver().getCurrentUrl(), "http://the-internet.herokuapp.com/context_menu");
         Actions actions = new Actions(getDriver());
         WebElement contextBox = getDriver().findElement(ContextMenuPage.HOT_SPOT_BOX);
         actions

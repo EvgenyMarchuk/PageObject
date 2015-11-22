@@ -28,6 +28,7 @@ public class AlertsTest extends TestBase{
 
     @Test
     public void jsAlertsTest(){
+        Assert.assertEquals(getDriver().getCurrentUrl(), "http://the-internet.herokuapp.com/javascript_alerts");
         AlertsPage.jsAlert();
         alert = getDriver().switchTo().alert();
         alertText = alert.getText();
@@ -39,6 +40,7 @@ public class AlertsTest extends TestBase{
 
     @Test
     public void jsConfirmTest(){
+        Assert.assertEquals(getDriver().getCurrentUrl(), "http://the-internet.herokuapp.com/javascript_alerts");
         AlertsPage.jsConfirm();
         alert = getDriver().switchTo().alert();
         alertText = alert.getText();
@@ -50,6 +52,7 @@ public class AlertsTest extends TestBase{
 
     @Test
     public void jsPromptTest(){
+        Assert.assertEquals(getDriver().getCurrentUrl(), "http://the-internet.herokuapp.com/javascript_alerts");
         AlertsPage.jsPrompt();
         alert = getDriver().switchTo().alert();
         alertText = alert.getText();

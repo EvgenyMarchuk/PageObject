@@ -16,6 +16,7 @@ public class KeyPressTest extends TestBase{
 
     @Test
     public void sendKeysTest() {
+        Assert.assertEquals(getDriver().getCurrentUrl(), "http://the-internet.herokuapp.com/key_presses");
         final char[] CHARS = "ASERTYBYFUQ".toCharArray();
         Actions actions = new Actions(getDriver());
         for (char s : CHARS){

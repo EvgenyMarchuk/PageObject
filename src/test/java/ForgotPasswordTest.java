@@ -20,6 +20,7 @@ public class ForgotPasswordTest extends TestBase{
 
     @Test
     public void restorePasswordTest() {
+        Assert.assertEquals(getDriver().getCurrentUrl(), "http://the-internet.herokuapp.com/forgot_password");
         ForgotPasswordPage.restore(EMAIL);
         Assert.assertEquals(getDriver().findElement(ForgotPasswordPage.CONTENT_FIELD).getText(), CONTENT_MSG);
         ForgotPasswordPage.checkMail(ALIAS_EMAIL[0]);

@@ -60,4 +60,9 @@ public class Helper {
         }
         return texts;
     }
+
+
+    public static void executeJavaScript(WebDriver driver, String script) {
+        ((JavascriptExecutor)driver).executeScript(script);
+    }
 }

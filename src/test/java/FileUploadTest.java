@@ -24,6 +24,7 @@ public class FileUploadTest extends TestBase{
 
     @Test
     public void uploadFileTest() throws InterruptedException, IOException {
+        Assert.assertEquals(getDriver().getCurrentUrl(), "http://the-internet.herokuapp.com/upload");
         FileUploadPage.viewButtonClick();
         executeScriptCmd(CMD_PROGRAM, FILE_UPLOAD_PATH);
         Thread.sleep(500);
@@ -36,6 +37,7 @@ public class FileUploadTest extends TestBase{
 
     @Test
     public void uploadFileInputTest() {
+        Assert.assertEquals(getDriver().getCurrentUrl(), "http://the-internet.herokuapp.com/upload");
         FileUploadPage.uploadFileInput(FILE_UPLOAD_PATH.getAbsolutePath());
         Assert.assertEquals(getDriver().findElement(FileUploadPage.SUCCESS_MSG_TEXT).getText(), SUCCESS_MSG);
         Assert.assertTrue(getDriver().findElement(FileUploadPage.UPLOAD_FILES_FIELD).isDisplayed());

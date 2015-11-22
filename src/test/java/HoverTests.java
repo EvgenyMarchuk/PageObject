@@ -19,6 +19,7 @@ public class HoverTests extends TestBase{
 
     @Test
     public void hoversTest(){
+        Assert.assertEquals(getDriver().getCurrentUrl(), "http://the-internet.herokuapp.com/hovers");
         List<WebElement> hoversList = getDriver().findElements(HoverPage.HOVER_FIGERES);
         int counter = 1;
         Actions actions = new Actions(getDriver());

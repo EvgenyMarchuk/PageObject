@@ -1,14 +1,12 @@
 import helpers.TestBase;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import pages.FramesPage;
 
 import static helpers.DriverSingleton.getDriver;
+import static helpers.Helper.executeJavaScript;
 
 public class FramesTest extends TestBase{
 
@@ -19,6 +17,8 @@ public class FramesTest extends TestBase{
 
     @Test
     public void nestedFrameTest(){
+        Assert.assertEquals(getDriver().getCurrentUrl(), "http://the-internet.herokuapp.com/frames");
+        Assert.assertTrue(getDriver().findElement(FramesPage.NESTED_FRAME).isDisplayed(), "Element not found");
         getDriver().findElement(FramesPage.NESTED_FRAME).click();
 
         FramesPage.switchToFrame(getDriver(), "frame-bottom");
@@ -36,9 +36,13 @@ public class FramesTest extends TestBase{
     }
 
     @Test
-    public void iFrameTest(){
+    public void iFrameTest() throws InterruptedException {
+        Assert.assertEquals(getDriver().getCurrentUrl(), "http://the-internet.herokuapp.com/frames");
+        Assert.assertTrue(getDriver().findElement(FramesPage.I_FRAME).isDisplayed(), "Element not found");
         getDriver().findElement(FramesPage.I_FRAME).click();
         getDriver().manage().window().setSize(new Dimension(640, 480));
+        //executeJavaScript(getDriver(), "document.getElementById('tinymce').innerHTML='<p>уже давно не бла бла бла</p>'");
+        Thread.sleep(5000);
         getDriver().findElement(By.id("mceu_9")).click();
         (new Actions(getDriver()))
                 .sendKeys(Keys.LEFT_CONTROL + "A")

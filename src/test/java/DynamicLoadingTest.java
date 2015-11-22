@@ -18,6 +18,9 @@ public class DynamicLoadingTest extends TestBase{
 
     @Test
     public void elementGotVisibleTest() {
+        Assert.assertEquals(getDriver().getCurrentUrl(), "http://the-internet.herokuapp.com/dynamic_loading");
+        Assert.assertTrue(getDriver().findElement(DynamicLoadingPage.EXAMPLE_ONE).isDisplayed(),
+                "Element not visible");
         getDriver().findElement(DynamicLoadingPage.EXAMPLE_ONE).click();
         WebElement startButton = getDriver().findElement(DynamicLoadingPage.START_BUTTON);
         WebElement finishBlock = getDriver().findElement(DynamicLoadingPage.FINISH_BLOCK);
@@ -30,6 +33,9 @@ public class DynamicLoadingTest extends TestBase{
 
     @Test
     public void elementAppearedTest() {
+        Assert.assertEquals(getDriver().getCurrentUrl(), "http://the-internet.herokuapp.com/dynamic_loading");
+        Assert.assertTrue(getDriver().findElement(DynamicLoadingPage.EXAMPLE_TWO).isDisplayed(),
+                "Element not visible");
         getDriver().findElement(DynamicLoadingPage.EXAMPLE_TWO).click();
         WebElement startButton = getDriver().findElement(DynamicLoadingPage.START_BUTTON);
         By finishBlock = DynamicLoadingPage.FINISH_BLOCK;

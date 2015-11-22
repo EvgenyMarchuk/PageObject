@@ -24,6 +24,7 @@ public class FormAuthenticationTest extends TestBase{
 
     @Test
     public void staticLogoutTest(){
+        Assert.assertEquals(getDriver().getCurrentUrl(), "http://the-internet.herokuapp.com/login");
         FormAuthenticationPage.login(USER_NAME, PASSWORD);
         FormAuthenticationPage.logout();
         Assert.assertTrue(getDriver().findElement(FormAuthenticationPage.USER_NAME_FIELD).isDisplayed());

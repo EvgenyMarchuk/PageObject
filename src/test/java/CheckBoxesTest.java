@@ -18,6 +18,7 @@ public class CheckBoxesTest extends TestBase{
 
     @Test
     public void checkboxTest(){
+        Assert.assertEquals(getDriver().getCurrentUrl(), "http://the-internet.herokuapp.com/checkboxes");
         List<WebElement> element = getDriver().findElements(CheckboxesPage.CHECKBOXES);
         CheckboxesPage.selectCheckBoxes(element);
         Assert.assertTrue((getDriver().findElements(CheckboxesPage.CHECKBOXES)).get(0).isSelected());
