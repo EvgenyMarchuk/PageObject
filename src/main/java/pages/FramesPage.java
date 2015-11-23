@@ -10,6 +10,7 @@ public class FramesPage {
     public static final By CONTENT_FRAME = get("frame.content");
     public static final By NESTED_FRAME = get("frame.nestedFrame");
     public static final By I_FRAME = get("frame.iFrame");
+    public static final By LARGE_ELEMENT = get("frame.largeElement");
 
     public static void switchToFrame(WebDriver driver, String frame) {
         driver

@@ -36,14 +36,14 @@ public class FramesTest extends TestBase{
     }
 
     @Test
-    public void iFrameTest() throws InterruptedException {
+    public void iFrameTest() {
         Assert.assertEquals(getDriver().getCurrentUrl(), "http://the-internet.herokuapp.com/frames");
         Assert.assertTrue(getDriver().findElement(FramesPage.I_FRAME).isDisplayed(), "Element not found");
         getDriver().findElement(FramesPage.I_FRAME).click();
         getDriver().manage().window().setSize(new Dimension(640, 480));
         executeJavaScript(getDriver(),
                 "document.getElementsByClassName('large-4')[0].setAttribute('style', 'display: none');");
-        Assert.assertFalse(getDriver().findElement(By.className("large-4")).isDisplayed());
+        Assert.assertFalse(getDriver().findElement(FramesPage.LARGE_ELEMENT).isDisplayed());
         getDriver().findElement(By.id("mceu_9")).click();
         (new Actions(getDriver()))
                 .sendKeys(Keys.LEFT_CONTROL + "A")
