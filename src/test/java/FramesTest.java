@@ -44,7 +44,6 @@ public class FramesTest extends TestBase{
         executeJavaScript(getDriver(),
                 "document.getElementsByClassName('large-4')[0].setAttribute('style', 'display: none');");
         Assert.assertFalse(getDriver().findElement(By.className("large-4")).isDisplayed());
-        Thread.sleep(5000);
         getDriver().findElement(By.id("mceu_9")).click();
         (new Actions(getDriver()))
                 .sendKeys(Keys.LEFT_CONTROL + "A")
